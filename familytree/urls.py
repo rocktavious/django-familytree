@@ -1,4 +1,4 @@
-from django.conf.urls import patterns, include, url
+from django.conf.urls import patterns, url
 
 urlpatterns = patterns('familytree.views',
     url(r'^$', 'family_member', {'member_id':1}),
