@@ -1,0 +1,76 @@
+<div id="member_card">
+	<a href="/familytree/{{ family_member.pk}}">
+	{% if descendant == 1 %}
+		<div id="member_card_banner_descendant" >
+	{% elif descendant == 2 %}
+		<div id="member_card_banner" >
+	{% else %}
+		<div id="member_card_banner_inlaw" >
+	{% endif %}
+	
+	<h2>
+	{{ family_member.full_name }}
+	{% if family_member.maiden_name %}
+	<span class="smallerItalicH2">({{ family_member.maiden_name }})</span>
+	{% endif %}
+	</h2>
+	</a>
+	</div>
+	
+	{% if family_member.picture %}
+		<div id="member_card_pic">
+		<img src="http://media.ohrockman.com/static/images/TestMugShot.jpg">
+		</div>
+	{% endif %}
+	
+	<div id="member_card_info">
+	<h3>
+		<span class="boldH3">Born: </span>
+		{% if family_member.display_birth_date %}
+			{{ family_member.display_birth_date }}
+		{% else %}
+			{{ family_member.birth_date }}
+		{% endif %}
+		{{ family_member.birth_location }}
+	</h3>
+	
+	{% if marriage.marriage_date %}
+	<h3>
+		<span class="boldH3">Married: </span>
+		{{ marriage.marriage_date }}
+		{{ marriage.marriage_location }}
+	</h3>
+	{% endif %}
+	
+	{% if family_member.death_date %}
+	<h3>
+		<span class="boldH3">Died: </span>
+		{{ family_member.death_date }}
+		{{ family_member.death_location }}
+	</h3>
+	{% endif %}
+	
+	{% if family_member.parents_marriage and descendant != 1 %}
+	{% with family_member.parents_marriage.descendant as father %}
+	{% with family_member.parents_marriage.in_law as mother %}
+	<h3>
+		<span class="boldH3">Father: </span>
+		<a href="/familytree/{{ father.pk }}">{{ father.full_name }}</a>
+	</h3>
+	<h3>
+		<span class="boldH3">Mother: </span>
+		<a href="/familytree/{{ mother.pk }}">{{ mother.full_name }}</a>
+	</h3>
+	{% endwith %}
+	{% endwith %}
+	{% endif %}
+	
+	{% if family_member.bio %}
+	<p>
+		<span class="boldH3">Bio: </span>
+		{{ family_member.bio }}
+	</p>
+	{% endif %}
+	</div>
+	<div id="member_card_footer" ></div>
+</div>

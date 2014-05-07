@@ -1,0 +1,6 @@
+coverage
+mock
+httmock
+nose
+nosexcover
+unittest2

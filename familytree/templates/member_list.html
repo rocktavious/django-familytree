@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block Content %}
+
+<h2>This is a list of matching people</h2>
+<ul>
+{% for person in person_list %}
+<a href="/familytree/{{ person.pk}}"><li>{{ person.full_name }}</li></a>
+{% endfor %}
+</ul
+
+{% endblock %}
