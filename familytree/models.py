@@ -128,6 +128,21 @@ class FamilyMemberManager(models.Manager):
                 return None
             return secondTry[0]
         return firstTry[0]
+    
+    def wedding_list(self):
+        jerry = self.search_members('Gerald','Donald','Rockman')[0]
+        for child in jerry.children.all():
+            marriages = Marriage.objects.marriage_with(child)
+            print child.display_name, '|',
+            for m in marriages:
+                print m.in_law.display_name,
+            print ''
+            for kid in child.children.all():
+                kid_marriages = Marriage.objects.marriage_with(kid)
+                print '\t', kid.display_name, '|',
+                for m2 in kid_marriages:
+                    print m2.in_law.display_name
+                print ''        
 
 class FamilyMember(models.Model):
     #Name
