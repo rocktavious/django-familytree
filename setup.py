@@ -7,7 +7,7 @@ kw = {}
 if sys.version_info >= (3,):
     kw['use_2to3'] = True
 
-setup(name=familytree.__name__,
+setup(name='django-' + familytree.__name__,
       version=familytree.__version__,
       description=familytree.__description__,
       long_description=open('README.md').read(),
