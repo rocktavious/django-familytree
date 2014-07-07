@@ -18,7 +18,7 @@ class FamilyMemberAdmin(admin.ModelAdmin):
 
     fieldsets = [
         ('Name',           {'fields': [('first_name','middle_name','last_name'),('maiden_name','preferred_name','ordinal')]}),
-        ('Personal Info', {'fields': ['sex',('date_birth_date','string_birth_date'),('birth_city','birth_state','birth_country'),('date_death_date','string_death_date'),('death_city','death_state','death_country'),'bio','picture'],'classes' : ['']}),
+        ('Personal Info', {'fields': ['sex','step_child',('date_birth_date','string_birth_date'),('birth_city','birth_state','birth_country'),('date_death_date','string_death_date'),('death_city','death_state','death_country'),'bio','picture'],'classes' : ['']}),
         ('Relationships',  {'fields': ['parents','children'], 'classes': ['']})
     ]    
     inlines = [DescendantInline, InLawInline]

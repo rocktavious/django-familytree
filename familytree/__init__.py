@@ -4,7 +4,7 @@ __description__ = 'Familytree application for django'
 __author__ = 'Kyle Rockman'
 __author_email__ = 'kyle.rockman@mac.com'
 __url__ = 'https://github.com/rocktavious/django-familytree'
-__version__ = '0.0.1'
+__version__ = '0.0.2'
 
 import logging
 
